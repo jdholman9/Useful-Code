@@ -113,70 +113,8 @@ ExportDF <- function(dfst){
   }
 }
 
-# Read Info files on demand into a list
-readInfo <- function(InfoTypes = c("Div", "Reg", "CC", "HC")){
-  curdir <- getwd()
-  types <- c('Div', 'Reg', 'CC', 'HC', 'FHC', 'CHC')
-  files <- c("Branch-Division_Info/Divisions.csv", 
-             "Branch-Division_Info/Regions.csv", "Branch-Division_Info/Cost Centers.csv",
-             "Loan_Officers/HeadCt.csv", "Loan_Officers/FullHeadCt.csv", 
-             "Loan_Officers/CurHeadCt.csv")
-  Info <- list()
-  setwd("~/Clean_Data")
-  
-  for(itype in InfoTypes){
-    if(itype %in% types){
-      dfm <- fread(files[which(itype == types)], sep = ',')
-      Info[[itype]] <- dfm
-    }
-  }
-  setwd(curdir)
-  if(length(Info) == 1){
-    return(Info[[1]])
-  } else {
-    return(Info)
-  }
-}
 
-# Read Cleaner files on demand into a list
-readcleaners <- function(ClnTypes = c("CCName", "Name", "CCNum")){
-  curdir <- getwd()
-  codes <- c("CCName", "Name", "CCNum")
-  files <- c("CCNameClean.csv", "NameClean.csv", "CCNumClean.csv")
-  
-  Cleaners <- list()
-  setwd("~/Clean_Data/Cleaners")
-  for(type in ClnTypes){
-    dfm <- fread(files[codes == type], sep = ',')
-    Cleaners[[type]] <- dfm
-  }
-  setwd(curdir)
-  if(length(Cleaners) == 1){
-    return(Cleaners[[1]])
-  } else {
-    return(Cleaners)
-  }
-}
 
-# Read in Connectors
-readConnectors <- function(ConnTypes = c("EtoC", "CtoD")){
-  curdir <- getwd()
-  codes <- c("CIDtoC", "CtoD", "CtoR", "EtoD", "EtoC", "RtoD", "CIDtoD")
-  files <- c("BCCIDtoCC.csv", "CCDivConn.csv", "BCCtoRegion.csv", "EmpDivCon.csv", 
-             "BEmpToCC.csv", "BRegToDiv.csv", "CidDivCon.csv")
-  Conns <- list()
-  setwd("~/Clean_Data/Connectors")
-  for(conn in ConnTypes){
-    dfm <- fread(files[codes == conn], sep = ',')
-    Conns[[conn]] <- dfm
-  }
-  setwd(curdir)
-  if(length(Conns) == 1){
-    return(Conns[[1]])
-  } else {
-    return(Conns)
-  }
-}
 
 # general read and clean dataframe
 ReadandClean <- function(flpth, Varnms1 = NULL, Varnms2 = NULL, clnTypes = NULL, getNames = F){
