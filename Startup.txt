@@ -1,6 +1,6 @@
-Install R, RStudio, Python, Notepad ++
+Install R, RStudio, Python (add python to path), Notepad ++
 
-Python
+Python packages from powershell
 pip install pyautogui
 pip install pandas
 pip install xlrd
