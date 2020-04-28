@@ -1,0 +1,16 @@
+Install R, RStudio, Python, Notepad ++
+
+Python
+pip install pyautogui
+pip install pandas
+pip install xlrd
+pip install openpyxl
+pip install jupyter
+
+R
+install.packages('dplyr')
+install.packages('RODBC')
+install.packages('ggplot2')
+install.packages('readxl')
+install.packages('stringr')
+install.packages('lubridate')
