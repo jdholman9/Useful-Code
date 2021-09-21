@@ -103,7 +103,6 @@ def comma_unique(items):
 # Send email
 def send_email(email_sender, email_recipients, email_subject, email_message, 
                attachment_location = ''):
-    #email_sender = 'Jacob Holman <jholman@sjrtd.com>'
 
     msg = MIMEMultipart()
     msg['From'] = email_sender
